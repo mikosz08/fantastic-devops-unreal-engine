@@ -5,9 +5,9 @@
 **UE5 Build & Release Platform** — CI/CD, automation, artifacts, monitoring.
 
 <p align="center">
-  <a href="docs/00_Demo.md">Demo (5 min)</a> •
-  <a href="docs/00_ENTRY.md">Documentation</a> •
-  <a href="docs/00_Milestones_Roadmap_v1.0.md">Milestones</a>
+  <a href="docs/Demo.md">Demo (5 min)</a> •
+  <a href="docs/00_Doc.md">Documentation</a> •
+  <a href="docs/01_Milestones_Roadmap_v0.1.md">Milestones</a>
 </p>
 
 **What you’ll find here:**
