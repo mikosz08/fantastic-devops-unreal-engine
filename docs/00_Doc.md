@@ -5,12 +5,11 @@ This project is a **UE5 Build & Release Platform (MVP)** built as a DevOps portf
 ---
 
 ## Start here
-- **Demo (5 min):** `Demo.md`
-- **Milestones (1 month MVP):** `01_Milestones_Roadmap_v0.1.md`
+- **[Demo.md](Demo.md) (5 min):** 
+- **Milestones:** [01_Milestones_Roadmap_v0.1.md](01_Milestones_Roadmap_v0.1.md)
 
 ---
 
 ## Core docs
-- `01_Local_Build_UE5.md`
-- `02_CICD.md`
-- ...
+- [02_Local_Build_UE5.md](02_Local_Build_UE5.md)
+- [03_CICD.md](03_CICD.md)
