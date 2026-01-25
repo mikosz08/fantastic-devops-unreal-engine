@@ -1,1 +1,91 @@
-/artifacts
+############################################################
+# Unreal Engine (scoped to /ue)
+# Multiple UE5 projects inside: ue/<ProjectName>/
+############################################################
+
+# --- Common generated folders ---
+/ue/**/Binaries/
+/ue/**/DerivedDataCache/
+/ue/**/Intermediate/
+/ue/**/Saved/
+
+# (Plugins can also generate these)
+# Ignore plugin build artifacts & cache too
+/ue/**/Plugins/**/Binaries/
+/ue/**/Plugins/**/Intermediate/
+/ue/**/Plugins/**/Saved/
+
+# --- Build products ---
+/ue/**/Build/**/FileOpenOrder/
+/ue/**/*.pdb
+/ue/**/*.obj
+/ue/**/*.dll
+/ue/**/*.exe
+/ue/**/*.lib
+/ue/**/*.a
+/ue/**/*.so
+/ue/**/*.dylib
+
+# --- Unreal specific ---
+/ue/**/.vs/
+/ue/**/.idea/
+/ue/**/.vscode/
+
+# Visual Studio / Rider / JetBrains user data
+/ue/**/*.sln
+/ue/**/*.suo
+/ue/**/*.user
+/ue/**/*.userosscache
+/ue/**/*.sdf
+/ue/**/*.opensdf
+/ue/**/*.VC.db
+/ue/**/*.VC.VC.opendb
+/ue/**/*.code-workspace
+
+# UBT / UHT / UAT logs, temp
+/ue/**/Logs/
+/ue/**/*.log
+
+# --- Packaging / staging output ---
+/ue/**/StagedBuilds/
+/ue/**/PackagingResults/
+/ue/**/ArchivedBuilds/
+
+# --- Crash reports ---
+/ue/**/CrashReportClient/
+/ue/**/Saved/Crashes/
+
+# --- Shader working dir (usually in Saved) ---
+/ue/**/Saved/ShaderDebugInfo/
+/ue/**/Saved/ShaderWorkingDir/
+
+# --- Asset thumbnails / autosaves ---
+/ue/**/Saved/Autosaves/
+/ue/**/Saved/Backup/
+/ue/**/Saved/Collections/
+/ue/**/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini
+
+############################################################
+# Keep these (important!)
+############################################################
+
+# Keep source + config + project descriptor
+!/ue/**/Source/**
+!/ue/**/Config/**
+!/ue/**/Content/**
+!/ue/**/*.uproject
+
+# Keep plugin sources/content/config (if you version plugins)
+!/ue/**/Plugins/**/Source/**
+!/ue/**/Plugins/**/Content/**
+!/ue/**/Plugins/**/Config/**
+!/ue/**/Plugins/**/*.uplugin
+
+# Build
+**/Build/**
+
+# Output
+**/Output/**
+
+# Runner's artifacts
+Artifacts/
