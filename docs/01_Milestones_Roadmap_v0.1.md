@@ -6,9 +6,9 @@
 ---
 
 ## MVP Definition of Done
-- [ ] UE5 project builds locally
-- [ ] CI builds UE5 project automatically
-- [ ] Build artifact is packaged (zip) and downloadable
+- [x] UE5 project builds locally
+- [x] CI builds UE5 project automatically
+- [x] Build artifact is packaged (zip) and downloadable
 - [ ] Python tool (`buildctl`) controls build/package/publish flow
 - [ ] Minimal infra runs via Docker Compose
 - [ ] Infra provisioning/automation uses **Ansible**
@@ -20,29 +20,28 @@
 ## Bootstrap + UE5 Baseline
 **Outcome:** local UE5 build works + repo skeleton + first docs.
 
-- [ ] Create repo layout: `docs/ infra/ tools/ ue/ ansible/`
-- [ ] Add minimal UE5 project into `ue/`
-- [ ] Local build instructions + prerequisites
-- [ ] Decide build target (MVP: Win64)
+- [x] Create repo layout: `docs/ infra/ tools/ ue/ ansible/`
+- [x] Add minimal UE5 project into `ue/`
+- [x] Local build instructions + prerequisites
+- [x] Decide build target (MVP: Win64)
 
 **Deliverables**
-- [ ] [`docs/00_Doc.md`](docs/00_Doc.md)
-- [ ] `docs/02_Local_Build_UE5.md`
-- [ ] UE5 project builds locally (repeatable)
+- [x] [00_Doc.md](docs/00_Doc.md)
+- [x] [02_Local_Build_UE5.md](docs/02_Local_Build_UE5.md)
 
 ---
 
 ## CI/CD Build + Artifact
 **Outcome:** `git push` → CI build → artifact available.
 
-- [ ] Create CI pipeline workflow
-- [ ] Build UE5 project on CI runner
-- [ ] Package build output into versioned zip
-- [ ] Publish artifact (CI artifacts is enough for MVP)
+- [x] Create CI pipeline workflow
+- [x] Build UE5 project on **self-hosted** runner
+- [x] Package build output into versioned zip
+- [x] Publish artifact
 
 **Deliverables**
-- [ ] `docs/03_CICD.md`
-- [ ] First CI artifact published and downloadable
+- [x] [03_CICD.md](docs/03_CICD.md)
+- [x] First CI artifact published and downloadable
 
 ---
 
