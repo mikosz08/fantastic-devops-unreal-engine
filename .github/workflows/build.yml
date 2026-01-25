@@ -1,0 +1,30 @@
+name: build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  sanity:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Repo sanity check
+        run: |
+          echo "Repo root:"
+          ls -la
+          echo ""
+          echo "Docs:"
+          ls -la docs || true
+          echo ""
+          echo "UE project:"
+          find ue -maxdepth 3 -name "*.uproject" -print || true
+
+      - name: Success
+        run: echo "CI pipeline is alive"
