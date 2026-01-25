@@ -1,4 +1,4 @@
-name: build
+name: UE5 Build Cook Stage Pak Archive
 
 on:
   push:

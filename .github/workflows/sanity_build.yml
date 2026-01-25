@@ -1,4 +1,4 @@
-name: build
+name: Sanity Check
 
 on:
   push:
