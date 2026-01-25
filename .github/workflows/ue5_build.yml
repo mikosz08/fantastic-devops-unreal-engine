@@ -1,0 +1,56 @@
+name: build
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  ue5-build:
+    name: UE5 Build (Win64)
+    runs-on: [self-hosted, windows, ue5]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify UE project path
+        shell: powershell
+        run: |
+          $Project = "ue/FantasticUE5/FantasticUE5.uproject"
+          if (!(Test-Path $Project)) { throw "Missing .uproject at $Project" }
+          Write-Host "Found: $Project"
+
+      - name: Package UE5 build (BuildCookRun)
+        shell: powershell
+        env:
+          UE5_ROOT: " C:\\Program Files\\Epic Games\\UE_5.7"
+        run: |
+          $ErrorActionPreference = "Stop"
+
+          $Project = Resolve-Path "ue/FantasticUE5/FantasticUE5.uproject"
+          $ArtifactsRoot = Join-Path (Resolve-Path ".") "artifacts"
+          $ArchiveDir = Join-Path $ArtifactsRoot "UE5_Win64_${{ github.run_number }}"
+
+          New-Item -ItemType Directory -Force -Path $ArchiveDir | Out-Null
+
+          $RunUAT = Join-Path $env:UE5_ROOT "Engine\Build\BatchFiles\RunUAT.bat"
+          if (!(Test-Path $RunUAT)) { throw "RunUAT not found at: $RunUAT (check UE5_ROOT)" }
+
+          & $RunUAT BuildCookRun `
+            -project="$Project" `
+            -noP4 `
+            -platform=Win64 `
+            -clientconfig=Development `
+            -build -cook -stage -pak -archive `
+            -archivedirectory="$ArchiveDir" `
+            -utf8output
+
+          Write-Host "Build archived to: $ArchiveDir"
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: UE5_Win64_build_${{ github.run_number }}
+          path: artifacts/**
+          retention-days: 7
