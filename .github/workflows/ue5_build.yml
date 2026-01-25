@@ -1,4 +1,4 @@
-name: build
+name: UE5 Build Cook Stage Pak Archive
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       - name: Package UE5 build (BuildCookRun)
         shell: powershell
         env:
-          UE5_ROOT: " C:\\Program Files\\Epic Games\\UE_5.7"
+          UE5_ROOT: "C:\\Program Files\\Epic Games\\UE_5.7"
         run: |
           $ErrorActionPreference = "Stop"
 
