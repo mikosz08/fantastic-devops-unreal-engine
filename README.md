@@ -1,5 +1,5 @@
 
-[![Build](https://github.com/mikosz08/fantastic-devops-unreal-engine/actions/workflows/build.yml/badge.svg)](https://github.com/mikosz08/fantastic-devops-unreal-engine/actions)
+[![Build](https://github.com/mikosz08/fantastic-devops-unreal-engine/actions/workflows/ue5_build.yml/badge.svg)](https://github.com/mikosz08/fantastic-devops-unreal-engine/actions)
 ![UE5](https://img.shields.io/badge/Unreal%20Engine-5-black)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
