@@ -14,7 +14,7 @@
 </p>
 
 **What you’ll find here:**
-- UE5 CI build pipeline: [build.yml](https://github.com/mikosz08/fantastic-devops-unreal-engine/blob/main/.github/workflows/build.yml)
+- UE5 CI build pipeline: [build.yml](https://github.com/mikosz08/fantastic-devops-unreal-engine/blob/main/.github/workflows/ue5_build.yml)
 - Versioned artifacts (packaged + published)
 - Python build/release tooling (`buildctl`)
 - Docker infra + Prometheus/Grafana
