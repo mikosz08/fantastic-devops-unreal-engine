@@ -1,0 +1,23 @@
+services:
+  fantastic-metrics:
+    container_name: fantastic-metrics
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile
+    volumes:
+      - ../tools:/app/tools 
+    ports:
+      - "5000:5000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 5s
+      timeout: 2s
+      retries: 3
+
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
