@@ -65,6 +65,15 @@
 /ue/**/Saved/Collections/
 /ue/**/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini
 
+# Build
+**/Build/**
+
+# Output
+**/Output/**
+
+# Runner's artifacts
+artifacts/
+
 ############################################################
 # Keep these (important!)
 ############################################################
@@ -80,12 +89,3 @@
 !/ue/**/Plugins/**/Content/**
 !/ue/**/Plugins/**/Config/**
 !/ue/**/Plugins/**/*.uplugin
-
-# Build
-**/Build/**
-
-# Output
-**/Output/**
-
-# Runner's artifacts
-Artifacts/
