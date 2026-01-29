@@ -48,9 +48,39 @@ jobs:
 
           Write-Host "Build archived to: $ArchiveDir"
 
+      - name: Generate build.json
+        shell: powershell
+        run: |
+          $ErrorActionPreference = "Stop"
+
+          $ArchiveDir = Join-Path (Resolve-Path ".") "artifacts\UE5_Win64_${{ github.run_number }}"
+
+          $build = @{
+            project        = "FantasticUE5"
+            timestamp_utc  = (Get-Date).ToUniversalTime().ToString("o")
+            git = @{
+              sha    = "${{ github.sha }}"
+              ref    = "${{ github.ref }}"
+            }
+            ci = @{
+              run_id     = "${{ github.run_id }}"
+              run_number = "${{ github.run_number }}"
+              runner     = "${{ runner.name }}"
+              os         = "${{ runner.os }}"
+            }
+            build = @{
+              platform      = "Win64"
+              configuration = "Development"
+            }
+          } | ConvertTo-Json -Depth 6
+
+          $build | Out-File -FilePath (Join-Path $ArchiveDir "build.json") -Encoding utf8
+          Write-Host "build.json written to $ArchiveDir"
+
+          
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: UE5_Win64_build_${{ github.run_number }}
           path: artifacts/**
-          retention-days: 7
+          retention-days: 3
