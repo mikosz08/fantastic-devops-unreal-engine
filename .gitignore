@@ -72,7 +72,7 @@
 **/Output/**
 
 # Runner's artifacts
-Artifacts/
+artifacts/
 
 ############################################################
 # Keep these (important!)
