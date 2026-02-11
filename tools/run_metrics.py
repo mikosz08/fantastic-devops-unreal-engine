@@ -13,8 +13,12 @@ HTTP_REQUESTS_TOTAL = Counter(
 )
 
 
-@app.route('/build')
+@app.route('/')
 def index():
+    return "Hello UE5 Metrics Server! Visit /build to simulate a UE5 build or /health for health checks."
+
+@app.route('/build')
+def build():
     BUILD_COUNTER.inc()
     return "UE5 Build Triggered (simulated)!"
 
@@ -35,6 +39,5 @@ def count_requests(response):
 
 if __name__ == '__main__':
     start_http_server(8000)
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
     print("Metrics Server Down. Exiting.")
-    
