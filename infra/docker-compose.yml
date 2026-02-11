@@ -5,9 +5,10 @@ services:
       context: ..
       dockerfile: infra/Dockerfile
     volumes:
-      - ../tools:/app/tools 
+      - ../tools:/app/tools
     ports:
       - "5000:5000"
+      - "8000:8000"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
       interval: 5s
@@ -21,7 +22,7 @@ services:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
-  
+
   grafana:
     container_name: grafana
     image: grafana/grafana
@@ -31,6 +32,6 @@ services:
       - grafana-data:/var/lib/grafana
     depends_on:
       - prometheus
+
 volumes:
   grafana-data:
-
